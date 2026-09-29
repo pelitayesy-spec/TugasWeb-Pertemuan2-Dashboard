@@ -1,0 +1,573 @@
+/* ========================================
+   CSS VARIABLES - REQUIREMENT 2
+======================================== */
+:root {
+    --color-primary: #c8439e;
+    --color-secondary: #ff8fab;
+    --color-accent: #ffd166;
+    --color-background: #fff9fc;
+    --color-surface: #ffffff;
+    --color-text: #292536;
+    --color-text-light: #777080;
+    --color-border: #eee5f0;
+    --color-primary-soft: #f1ebff;
+    --color-note: #f7f2ff;
+    --font-main: Arial, Helvetica, sans-serif;
+    --radius-small: 12px;
+    --radius-medium: 20px;
+    --radius-large: 30px;
+    --shadow-soft: 0 10px 30px rgba(60, 40, 80, 0.08);
+    --max-width: 1100px;
+}
+
+/* ========================================
+   GLOBAL - REQUIREMENT 3
+======================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3 {
+    margin-top: 0;
+}
+
+/* ========================================
+   HEADER & NAV - FLEXBOX
+======================================== */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(8px);
+}
+
+.header-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 20px 24px 14px;
+    text-align: center;
+}
+
+.site-title {
+    margin-bottom: 5px;
+    color: var(--color-primary);
+    font-size: 28px;
+}
+
+.site-tagline {
+    margin-bottom: 15px;
+    color: var(--color-text-light);
+    font-size: 14px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    padding: 8px 14px;
+    color: var(--color-text-light);
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 999px;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: var(--color-primary-soft);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   MAIN STRUCTURE - CSS GRID REQUIREMENT 4
+======================================== */
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+}
+
+main > section {
+    grid-column: 1 / -1;
+}
+
+/* ========================================
+   HOME
+======================================== */
+.home-section {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.home-content {
+    max-width: 800px;
+}
+
+.home-greeting,
+.section-label {
+    color: var(--color-primary);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.home-greeting {
+    margin-bottom: 8px;
+}
+
+.home-section h2 {
+    margin-bottom: 15px;
+    font-size: clamp(34px, 6vw, 58px);
+    line-height: 1.15;
+}
+
+.home-section h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.home-description {
+    max-width: 650px;
+    margin: 0 auto 28px;
+    color: var(--color-text-light);
+    font-size: 18px;
+}
+
+.interactive-box {
+    max-width: 700px;
+    margin: 20px auto 0;
+    padding: 18px 22px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-soft);
+    text-align: left;
+}
+
+.interactive-box summary,
+details summary {
+    cursor: pointer;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* ========================================
+   GENERAL SECTION
+======================================== */
+.content-section {
+    padding: 80px 0;
+}
+
+.section-heading {
+    margin-bottom: 38px;
+}
+
+.section-heading .section-label {
+    margin-bottom: 6px;
+}
+
+.section-heading h2 {
+    margin-bottom: 10px;
+    font-size: 40px;
+    line-height: 1.2;
+}
+
+.section-heading > p:last-child {
+    max-width: 700px;
+    color: var(--color-text-light);
+}
+
+/* ========================================
+   ABOUT - CSS GRID
+======================================== */
+.about-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.profile-card {
+    margin: 0;
+    padding: 15px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-soft);
+    transform: rotate(-1deg);
+}
+
+.profile-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 22px;
+}
+
+.profile-card figcaption {
+    padding: 15px 8px 5px;
+    color: var(--color-text-light);
+    font-size: 13px;
+    text-align: center;
+}
+
+.about-text > p {
+    color: var(--color-text-light);
+}
+
+.about-note {
+    margin-top: 25px;
+    padding: 22px;
+    background-color: var(--color-note);
+    border-left: 5px solid var(--color-primary);
+    border-radius: var(--radius-small);
+}
+
+.about-note h3 {
+    margin-bottom: 8px;
+    color: var(--color-primary);
+}
+
+.about-note ul {
+    margin-bottom: 0;
+}
+
+.student-since {
+    margin-top: 22px;
+}
+
+/* ========================================
+   SKILLS - CSS GRID
+======================================== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.info-card {
+    padding: 30px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(60, 40, 80, 0.12);
+}
+
+.card-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background-color: var(--color-primary-soft);
+    border-radius: 15px;
+    color: var(--color-primary);
+    font-size: 25px;
+}
+
+.info-card h3 {
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+
+.info-card > p {
+    color: var(--color-text-light);
+}
+
+.info-card details {
+    margin-top: 18px;
+}
+
+.info-card ul {
+    padding-left: 20px;
+}
+
+/* ========================================
+   INTERESTS - CSS GRID
+======================================== */
+.interest-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.interest-card {
+    padding: 28px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.interest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(60, 40, 80, 0.10);
+}
+
+.interest-icon {
+    display: block;
+    margin-bottom: 15px;
+    color: var(--color-primary);
+    font-size: 35px;
+}
+
+.interest-card h3 {
+    margin-bottom: 8px;
+}
+
+.interest-card > p {
+    color: var(--color-text-light);
+}
+
+.interest-card details {
+    margin-top: 18px;
+}
+
+/* ========================================
+   CONTACT - FLEXBOX
+======================================== */
+.contact-section {
+    padding-bottom: 110px;
+}
+
+.contact-info {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    min-width: 260px;
+    flex: 1 1 300px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 20px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+}
+
+.contact-icon {
+    width: 45px;
+    height: 45px;
+    flex: 0 0 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary-soft);
+    color: var(--color-primary);
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.contact-item strong {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.contact-item a {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.contact-note {
+    margin-top: 22px;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+.site-footer {
+    padding: 30px 20px;
+    background-color: #292536;
+    color: #ffffff;
+    text-align: center;
+}
+
+.site-footer hr {
+    max-width: var(--max-width);
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+}
+
+.site-footer p {
+    margin: 8px 0;
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+.back-to-top {
+    color: #ffffff;
+}
+
+.back-to-top:hover {
+    color: var(--color-secondary);
+}
+
+/* ========================================
+   RESPONSIVE - TABLET
+======================================== */
+@media (max-width: 800px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .profile-card {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .card-grid,
+    .interest-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-section {
+        min-height: 520px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE
+======================================== */
+@media (max-width: 600px) {
+    .header-content,
+    main {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .site-title {
+        font-size: 23px;
+    }
+
+    .navbar {
+        gap: 4px;
+    }
+
+    .nav-link {
+        padding: 7px 9px;
+        font-size: 12px;
+    }
+
+    .home-section {
+        min-height: 500px;
+        padding: 60px 8px;
+    }
+
+    .home-section h2 {
+        font-size: 36px;
+    }
+
+    .content-section {
+        padding: 60px 0;
+    }
+
+    .section-heading h2 {
+        font-size: 31px;
+    }
+
+    .info-card,
+    .interest-card {
+        padding: 24px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+
+    .contact-item {
+        min-width: 100%;
+        width: 100%;
+    }
+}
+
+/* ========================================
+   DARK MODE - BONUS
+======================================== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: #17141d;
+        --color-surface: #211d29;
+        --color-text: #f4eff7;
+        --color-text-light: #b9b0bf;
+        --color-border: #39313f;
+        --color-primary-soft: #302842;
+        --color-note: #29223a;
+    }
+
+    .site-header {
+        background-color: rgba(29, 25, 35, 0.95);
+    }
+
+    .nav-link:hover {
+        background-color: #302842;
+    }
+
+    .site-footer {
+        background-color: #0f0d13;
+    }
+}
